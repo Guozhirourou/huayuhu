@@ -57,6 +57,12 @@ public class HomeController {
         return "manager/managers";
     }
 
+
+    @RequestMapping(value={"/list"})
+    public String list(){
+        return "list";
+    }
+
     //用户大数据
     @RequestMapping(value = "/visitors", method = RequestMethod.GET)
     public String visitors(){
