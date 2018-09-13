@@ -28,7 +28,11 @@
         <javaClientGenerator targetPackage="com.gxu.tbvp.mapper" targetProject="src/main/java"
                              type="XMLMAPPER"/>
 
+<<<<<<< HEAD
         <table tableName="produce"></table>
+=======
+        <table tableName="buyRecord"></table>
+>>>>>>> a0046ff29998cd277d16735fe59d099dc6c45191
 
     </context>
 </generatorConfiguration>

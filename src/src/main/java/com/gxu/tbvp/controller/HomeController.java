@@ -58,11 +58,14 @@ public class HomeController {
     }
 
 
+<<<<<<< HEAD
     @RequestMapping(value={"/list"})
     public String list(){
         return "list";
     }
 
+=======
+>>>>>>> a0046ff29998cd277d16735fe59d099dc6c45191
     //用户大数据
     @RequestMapping(value = "/visitors", method = RequestMethod.GET)
     public String visitors(){

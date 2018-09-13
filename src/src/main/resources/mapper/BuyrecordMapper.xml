@@ -14,8 +14,11 @@
     <result column="totalTime" property="totaltime" jdbcType="INTEGER" />
     <result column="buyCount" property="buycount" jdbcType="INTEGER" />
   </resultMap>
+<<<<<<< HEAD
 
   <select id="countPeopleByPrice" resultType="int" parameterType="java.util.Map">
     SELECT SUM(buyCount) FROM buyrecord WHERE buy_price BETWEEN #{firstPrice} AND #{lastPrice};
   </select>
+=======
+>>>>>>> a0046ff29998cd277d16735fe59d099dc6c45191
 </mapper>

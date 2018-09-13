@@ -76,12 +76,22 @@ public class UserServiceImpl extends BaseService<User> implements UserService {
     }
 
     @Override
+<<<<<<< HEAD
     public int insertBach(List<User> userList) {
         try {
             userMapper.insertList(userList);
             return 1;
         } catch (Exception e) {
             e.printStackTrace();
+=======
+    @Transactional(propagation= Propagation.REQUIRED,readOnly=false,rollbackFor={Exception.class})
+    public int insertBach(List<User> userList) {
+        try {
+            userMapper.insertList(userList);
+//            userMapper.insert(userList.get(0));
+            return 1;
+        } catch (Exception e) {
+>>>>>>> a0046ff29998cd277d16735fe59d099dc6c45191
             return 0;
         }
     }
@@ -99,10 +109,13 @@ public class UserServiceImpl extends BaseService<User> implements UserService {
     public void autoIncrement() {
         userMapper.autoIncrement();
     }
+<<<<<<< HEAD
 
     @Override
     public int countAge(Map<String, Object> ageMap) {
         int count = userMapper.countAge(ageMap);
         return count;
     }
+=======
+>>>>>>> a0046ff29998cd277d16735fe59d099dc6c45191
 }

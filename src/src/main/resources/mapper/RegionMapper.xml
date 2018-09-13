@@ -13,6 +13,7 @@
   <select id="getProvinceMsg" resultType="com.gxu.tbvp.domain.Region">
     select * FROM region WHERE parent_id = 0;
   </select>
+<<<<<<< HEAD
   <select id="selectCountProvince" resultType="java.lang.Integer" parameterType="java.lang.String">
       	SELECT count(id)
 		FROM user
@@ -23,5 +24,7 @@
 		FROM user
 		where addressId = #{id,jdbcType=BIGINT}
   </select>
+=======
+>>>>>>> a0046ff29998cd277d16735fe59d099dc6c45191
 
 </mapper>

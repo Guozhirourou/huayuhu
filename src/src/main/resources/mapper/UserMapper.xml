@@ -29,9 +29,12 @@
   <update id="autoIncrement">
     ALTER TABLE `user` AUTO_INCREMENT 0000000;
   </update>
+<<<<<<< HEAD
 
   <select id="countAge" resultType="int" parameterType="java.util.HashMap">
     SELECT SUM(age) FROM `user` where age between #{firstAge} and #{lastAge};
   </select>
 
+=======
+>>>>>>> a0046ff29998cd277d16735fe59d099dc6c45191
 </mapper>

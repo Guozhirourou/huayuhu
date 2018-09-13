@@ -1,25 +1,35 @@
 package com.gxu.tbvp.controller;
 
+<<<<<<< HEAD
 import com.gxu.tbvp.domain.Manager;
 import com.gxu.tbvp.service.RegionService;
 import com.gxu.tbvp.service.UserService;
 
 import org.apache.commons.collections.map.HashedMap;
 import org.springframework.data.repository.query.Param;
+=======
+import com.gxu.tbvp.service.UserService;
+>>>>>>> a0046ff29998cd277d16735fe59d099dc6c45191
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.*;
 
+=======
+import java.util.HashMap;
+import java.util.Map;
+>>>>>>> a0046ff29998cd277d16735fe59d099dc6c45191
 
 @RestController
 @RequestMapping("/userJson")
 public class UserJsonController {
 
+<<<<<<< HEAD
     private static int corePoolSize = Runtime.getRuntime().availableProcessors();
     private static ThreadPoolExecutor executor = new ThreadPoolExecutor(corePoolSize, corePoolSize+1, 10l, TimeUnit.SECONDS,
             new LinkedBlockingQueue<Runnable>(1000));
@@ -141,4 +151,19 @@ public class UserJsonController {
         return mapArrayList;
     }
 
+=======
+    @Resource
+    private UserService userService;
+
+    @RequestMapping("/getSexJson")
+    public Map getSexJson() {
+        int countGirl = userService.countSex(1);
+        int countBoy = userService.countSex(0);
+        System.out.println(countBoy);
+        Map sexMap = new HashMap();
+        sexMap.put("boy", countBoy);
+        sexMap.put("girl", countGirl);
+        return sexMap;
+    }
+>>>>>>> a0046ff29998cd277d16735fe59d099dc6c45191
 }

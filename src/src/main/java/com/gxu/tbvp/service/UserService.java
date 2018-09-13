@@ -19,6 +19,9 @@ public interface UserService extends IService<User>{
     int countSex(int userSex);
 
     void autoIncrement();
+<<<<<<< HEAD
 
     int countAge(Map<String, Object> ageMap);
+=======
+>>>>>>> a0046ff29998cd277d16735fe59d099dc6c45191
 }

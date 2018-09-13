@@ -158,11 +158,14 @@
                 </exclusion>
             </exclusions>
         </dependency>
+<<<<<<< HEAD
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi</artifactId>
             <version>3.17</version>
         </dependency>
+=======
+>>>>>>> a0046ff29998cd277d16735fe59d099dc6c45191
     </dependencies>
 
     <build>

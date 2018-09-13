@@ -1,16 +1,22 @@
 package com.gxu.tbvp.mockData;
 
+<<<<<<< HEAD
 import com.gxu.tbvp.domain.Accessrecord;
 import com.gxu.tbvp.domain.Region;
 import com.gxu.tbvp.domain.User;
 import com.gxu.tbvp.exception.SelfJSONResult;
 import com.gxu.tbvp.service.RegionService;
+=======
+import com.gxu.tbvp.domain.User;
+import com.gxu.tbvp.exception.SelfJSONResult;
+>>>>>>> a0046ff29998cd277d16735fe59d099dc6c45191
 import com.gxu.tbvp.service.UserService;
 import com.gxu.tbvp.utils.PasswordHelper;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+<<<<<<< HEAD
 import java.math.BigDecimal;
 import java.text.ParseException;
 import java.util.*;
@@ -24,6 +30,15 @@ public class MockUser {
     private static int corePoolSize = Runtime.getRuntime().availableProcessors();
     private static ThreadPoolExecutor executor = new ThreadPoolExecutor(corePoolSize, corePoolSize+1, 10l, TimeUnit.SECONDS,
             new LinkedBlockingQueue<Runnable>(1000));
+=======
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
+@RestController
+public class MockUser {
+>>>>>>> a0046ff29998cd277d16735fe59d099dc6c45191
 
     @Resource
     private UserService userService;
@@ -35,19 +50,28 @@ public class MockUser {
     public static final String[] email_suffix = "@gmail.com,@yahoo.com,@msn.com,@hotmail.com,@aol.com,@ask.com,@live.com,@qq.com,@0355.net,@163.com,@163.net,@263.net,@3721.net,@yeah.net,@googlemail.com,@126.com,@sina.com,@sohu.com,@yahoo.com.cn".split(",");
     public static String letter = "qazwsxedcrfvtgbyhnujmik,ol.";
     public static String number = "783205961";
+<<<<<<< HEAD
     public static final String[] province = "北京,天津,河北,山西,内蒙古,辽宁,吉林,黑龙江,上海,江苏,浙江,安徽,福建,江西,山东,河南,湖北,湖南,广东,广西,海南,重庆,四川,贵州,云南,西藏,陕西,甘肃,青海,宁夏,新疆,台湾,香港,澳门,海外".split(",");
     public static final int[] provinceId = {110000,120000,130000,140000,150000,210000,220000,230000,310000,320000,330000,340000,350000,360000,370000,410000,420000,430000,440000,450000,460000,500000,510000,520000,530000,540000,610000,620000,630000,640000,650000,710000,810000,820000,990000};
     public static int temp;
 
+=======
+    public static final String[] province = "北京,天津,河北,北京,天津,河北,北京,天津,河北,山西,内蒙,辽宁,吉林,黑龙江,上海,江苏,浙江,上海,江苏,浙江,安徽,福建,江西,山东,河南,湖北,湖南,广东,广西,广东,广西,湖南,广东,广西,湖南,广东,广西,海南,重庆,四川,贵州,云南,贵州,云南,贵州,云南,西藏,陕西,甘肃,青海,宁夏,新疆,台湾,香港,澳门,海外".split(",");
+    public static final int[] provinceId = {110000,120000,130000,110000,120000,130000,110000,120000,130000,140000,150000,210000,220000,230000,310000,320000,330000,310000,320000,330000,340000,350000,360000,370000,410000,420000,430000,440000,450000,440000,450000,460000,440000,450000,460000,440000,450000,500000,510000,520000,530000,540000,530000,540000,530000,540000,610000,620000,630000,640000,650000,710000,810000,820000,990000,100000};//100000海外
+    public static int temp;
+>>>>>>> a0046ff29998cd277d16735fe59d099dc6c45191
     //随机生成start-end之间的数
     public static int getNum(int start, int end) {
         return (int)(Math.random()*(end - start +1)+start);
     }
+<<<<<<< HEAD
     public static double getDoubleNum(int start, int end) {
         double f = (double)(Math.random()*(end - start +1)+start);
         BigDecimal b = new BigDecimal(f);
         return b.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
     }
+=======
+>>>>>>> a0046ff29998cd277d16735fe59d099dc6c45191
 
     /*
     返回中文姓名
@@ -110,6 +134,7 @@ public class MockUser {
     返回年龄
     */
     private static int getAge(){
+<<<<<<< HEAD
 //        double[] appWaysWeiths = {2, 5, 8, 7, 10}; = 32
         double temp = getDoubleNum(0,32);
         if (temp < 2) {
@@ -124,6 +149,12 @@ public class MockUser {
             return getNum(60,80);
         }
         return 61;
+=======
+        if (temp == 0){
+            return getNum(45,65);
+        }
+        return getNum(3,80);
+>>>>>>> a0046ff29998cd277d16735fe59d099dc6c45191
     }
 
     /*
@@ -131,14 +162,19 @@ public class MockUser {
     */
     private static int provinceid;
     private static String getAddress() {
+<<<<<<< HEAD
         CreateDate c = new CreateDate();
         int index = c.createRandom();
 //        int index = getNum(0, province.length-1);
+=======
+        int index = getNum(0, province.length-1);
+>>>>>>> a0046ff29998cd277d16735fe59d099dc6c45191
         provinceid = provinceId[index];
         return province[index];
     }
 
     @RequestMapping("/mockUser")
+<<<<<<< HEAD
     public SelfJSONResult insetBach() throws ParseException, InterruptedException {
         //线程数量
         final CountDownLatch countDownLatch = new CountDownLatch(10);
@@ -187,6 +223,42 @@ public class MockUser {
     public static void main(String args[]) throws ParseException {
         System.out.println(province.length);
         System.out.println(provinceId.length);
+=======
+    public SelfJSONResult insetBach() throws ParseException {
+//        userService.autoIncrement();
+        MockDate mockDate = new MockDate();
+        PasswordHelper passwordHelper = new PasswordHelper();
+        int flag = 0;
+        for (int i = 0; i < 35000; i++) {
+            List<User> userList = new ArrayList<>();
+            for (int j = 0; j < 10; j++) {
+                User user = new User();
+                String name = getChineseName();
+                user.setUsername(name);
+                user.setAddressid(provinceid);
+                user.setPassword(getPassword(10));
+                user.setName(name);
+                user.setPhone(getTel());
+                user.setRegisterTime(mockDate.RondomDate());
+                user.setSex(temp);
+                user.setAge(getAge());
+                user.setEnable(1);
+                user.setProvince(getAddress());
+                passwordHelper.encryptPassword(user);
+                userList.add(user);
+            }
+            flag = userService.insertBach(userList);
+        }
+        if (flag == 1){
+            return SelfJSONResult.ok("success");
+        } else {
+            return SelfJSONResult.errorException("插入失败，再次刷新即可");
+        }
+    }
+
+    public static void main(String args[]) throws ParseException {
+
+>>>>>>> a0046ff29998cd277d16735fe59d099dc6c45191
     }
 
 }

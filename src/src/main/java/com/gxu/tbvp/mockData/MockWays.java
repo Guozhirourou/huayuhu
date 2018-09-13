@@ -10,6 +10,7 @@ import javax.annotation.Resource;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+<<<<<<< HEAD
 import java.util.concurrent.*;
 
 @RestController
@@ -17,6 +18,11 @@ public class MockWays {
     private static int corePoolSize = Runtime.getRuntime().availableProcessors();
     private static ThreadPoolExecutor executor = new ThreadPoolExecutor(corePoolSize, corePoolSize +1,
             10l, TimeUnit.SECONDS, new LinkedBlockingDeque<Runnable>(1000));
+=======
+
+@RestController
+public class MockWays {
+>>>>>>> a0046ff29998cd277d16735fe59d099dc6c45191
 
     @Resource
     private WaysService waysService;
@@ -31,6 +37,7 @@ public class MockWays {
         return (int)(Math.random()*(end - start +1)+start);
     }
 
+<<<<<<< HEAD
     public static int getWaysId() {
 //        double[] appWaysWeiths = {45, 26.8, 12.8, 8.5, 6.9};
         double temp = getDoubleNum(0,100);
@@ -89,5 +96,23 @@ public class MockWays {
         }
         countDownLatch.await();
         return SelfJSONResult.ok("success");
+=======
+    @RequestMapping("/mockWays")
+    public SelfJSONResult mockWays() {
+        List<Ways> waysList = new ArrayList<>();
+        for (int i = 0; i < 19920; i++) {
+            Ways ways = new Ways();
+            ways.setAmount(getDoubleNum(200, 3500));
+            //0飞机 204165，1火车 178121，2汽车 31006，3自驾 86627，4其它 19920
+            ways.setWay(4);
+            waysList.add(ways);
+        }
+        int temp = waysService.insertBach(waysList);
+        if (temp == 1){
+            return SelfJSONResult.ok(waysList.get(1));
+        } else {
+            return SelfJSONResult.errorMsg("插入失败");
+        }
+>>>>>>> a0046ff29998cd277d16735fe59d099dc6c45191
     }
 }

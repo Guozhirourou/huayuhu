@@ -3,6 +3,10 @@ package com.gxu.tbvp.mockData;
 import com.gxu.tbvp.domain.Accessrecord;
 import com.gxu.tbvp.exception.SelfJSONResult;
 import com.gxu.tbvp.service.AccessrecordService;
+<<<<<<< HEAD
+=======
+import org.springframework.beans.factory.annotation.Autowired;
+>>>>>>> a0046ff29998cd277d16735fe59d099dc6c45191
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -10,6 +14,7 @@ import javax.annotation.Resource;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
+<<<<<<< HEAD
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -20,6 +25,11 @@ public class MockAccessRecord {
     private static int corePoolSize = Runtime.getRuntime().availableProcessors();
     private static ThreadPoolExecutor executor = new ThreadPoolExecutor(corePoolSize, corePoolSize+1, 10l, TimeUnit.SECONDS,
             new LinkedBlockingQueue<Runnable>(1000));
+=======
+
+@RestController
+public class MockAccessRecord {
+>>>>>>> a0046ff29998cd277d16735fe59d099dc6c45191
 
     @Resource
     private AccessrecordService accessrecordService;
@@ -44,6 +54,7 @@ public class MockAccessRecord {
     }
 
     @RequestMapping("/mockAccessRecord")
+<<<<<<< HEAD
     public SelfJSONResult mockAccessRecord() throws ParseException, InterruptedException {
         //设置线程数量
         final CountDownLatch countDownLatch = new CountDownLatch(10);
@@ -82,6 +93,23 @@ public class MockAccessRecord {
         countDownLatch.await();
         if (i == (int)countDownLatch.getCount()){
             return SelfJSONResult.ok("success");
+=======
+    public SelfJSONResult mockAccessRecord() throws ParseException {
+        MockDate mockDate = new MockDate();
+        List<Accessrecord> accessrecordList = new ArrayList<>();
+        for (int i = 0; i < 100000; i++) {
+            Accessrecord accessrecord = new Accessrecord();
+            accessrecord.setAccessproduceid(getProduceId());
+            accessrecord.setUserid(getUserId());
+            accessrecord.setTotaltime(getTotalTime());
+            accessrecord.setAccesstime(mockDate.RondomDate());
+
+            accessrecordList.add(accessrecord);
+        }
+        int temp = accessrecordService.bachInsert(accessrecordList);
+        if (temp == 1){
+            return SelfJSONResult.ok(accessrecordList.get(0));
+>>>>>>> a0046ff29998cd277d16735fe59d099dc6c45191
         }else {
             return SelfJSONResult.errorMsg("插入失败");
         }

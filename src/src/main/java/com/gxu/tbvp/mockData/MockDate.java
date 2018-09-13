@@ -7,7 +7,11 @@ import java.util.Date;
 public class MockDate {
 
     public Date RondomDate() throws ParseException{
+<<<<<<< HEAD
         Date date = randomDate("2016-01-01", "2018-12-31");
+=======
+        Date date = randomDate("2018-06-01", "2018-09-01");
+>>>>>>> a0046ff29998cd277d16735fe59d099dc6c45191
         String str = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss").format(date);
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
         return sdf.parse(str);

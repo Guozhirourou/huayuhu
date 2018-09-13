@@ -11,6 +11,7 @@
     <result column="amount" jdbcType="DOUBLE" property="amount" />
     <result column="way" jdbcType="INTEGER" property="way" />
   </resultMap>
+<<<<<<< HEAD
   <select id="selectWaysById" resultType="java.lang.Integer" parameterType="java.lang.Integer">
       	SELECT count(*)
 		FROM ways
@@ -20,4 +21,6 @@
       	SELECT count(*)
 		FROM ways
   </select>
+=======
+>>>>>>> a0046ff29998cd277d16735fe59d099dc6c45191
 </mapper>

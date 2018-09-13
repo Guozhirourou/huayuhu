@@ -34,6 +34,7 @@ public class RegionServiceImpl extends BaseService<Region> implements RegionServ
             return null;
         }
     }
+<<<<<<< HEAD
 
     @Override
     public int selectCountProvince(String province){
@@ -45,4 +46,6 @@ public class RegionServiceImpl extends BaseService<Region> implements RegionServ
         int count = regionMapper.selectCountProvinceById(id);
         return count;
     }
+=======
+>>>>>>> a0046ff29998cd277d16735fe59d099dc6c45191
 }

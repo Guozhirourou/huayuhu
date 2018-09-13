@@ -1,16 +1,28 @@
 /*
 Navicat MySQL Data Transfer
 
+<<<<<<< HEAD
 Source Server         : twodog
 Source Server Version : 50719
+=======
+Source Server         : test
+Source Server Version : 80011
+>>>>>>> a0046ff29998cd277d16735fe59d099dc6c45191
 Source Host           : localhost:3306
 Source Database       : tbvp
 
 Target Server Type    : MYSQL
+<<<<<<< HEAD
 Target Server Version : 50719
 File Encoding         : 65001
 
 Date: 2018-09-06 17:25:52
+=======
+Target Server Version : 80011
+File Encoding         : 65001
+
+Date: 2018-09-03 19:38:06
+>>>>>>> a0046ff29998cd277d16735fe59d099dc6c45191
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -27,7 +39,11 @@ CREATE TABLE `accessrecord` (
   `accessTime` datetime DEFAULT NULL COMMENT '购买时间，为空表示访问时间',
   `totalTime` int(3) DEFAULT NULL COMMENT '访问的次数',
   PRIMARY KEY (`id`)
+<<<<<<< HEAD
 ) ENGINE=InnoDB AUTO_INCREMENT=1101001 DEFAULT CHARSET=utf8;
+=======
+) ENGINE=InnoDB AUTO_INCREMENT=401001 DEFAULT CHARSET=utf8;
+>>>>>>> a0046ff29998cd277d16735fe59d099dc6c45191
 
 -- ----------------------------
 -- Table structure for address
@@ -76,7 +92,11 @@ CREATE TABLE `buyrecord` (
   `totalTime` int(3) DEFAULT NULL COMMENT '访问的次数',
   `buyCount` int(6) DEFAULT NULL COMMENT '购买数量',
   PRIMARY KEY (`id`)
+<<<<<<< HEAD
 ) ENGINE=InnoDB AUTO_INCREMENT=20001 DEFAULT CHARSET=utf8;
+=======
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+>>>>>>> a0046ff29998cd277d16735fe59d099dc6c45191
 
 -- ----------------------------
 -- Table structure for manager
@@ -100,8 +120,13 @@ CREATE TABLE `manager` (
   PRIMARY KEY (`id`),
   KEY `addressId` (`addressId`),
   KEY `produceId` (`produceId`),
+<<<<<<< HEAD
   CONSTRAINT `manager_ibfk_1` FOREIGN KEY (`addressId`) REFERENCES `address` (`addressId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+=======
+  CONSTRAINT `manager_ibfk_1` FOREIGN KEY (`addressId`) REFERENCES `address` (`addressid`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+>>>>>>> a0046ff29998cd277d16735fe59d099dc6c45191
 
 -- ----------------------------
 -- Table structure for manager_role
@@ -120,6 +145,7 @@ CREATE TABLE `manager_role` (
 -- ----------------------------
 DROP TABLE IF EXISTS `mapperdemo`;
 CREATE TABLE `mapperdemo` (
+<<<<<<< HEAD
   `user_id` varchar(50) NOT NULL COMMENT '用户id,字符型，用于唯一标识每个用户',
   `user_name` varchar(100) NOT NULL COMMENT '用户名字，用于登陆',
   `user_email` varchar(50) NOT NULL COMMENT '用户邮箱，用于登陆和找回密码',
@@ -127,6 +153,15 @@ CREATE TABLE `mapperdemo` (
   `user_password` varchar(50) NOT NULL COMMENT '用户密码，用于登陆',
   `user_delete` int(2) DEFAULT '0' COMMENT '假删除，0代表为删除，1代表删除',
   `user_image` varchar(500) DEFAULT NULL COMMENT '用户图片',
+=======
+  `user_id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '用户id,字符型，用于唯一标识每个用户',
+  `user_name` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '用户名字，用于登陆',
+  `user_email` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '用户邮箱，用于登陆和找回密码',
+  `user_phone` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '用户手机，用于登陆和找回密码',
+  `user_password` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '用户密码，用于登陆',
+  `user_delete` int(2) DEFAULT '0' COMMENT '假删除，0代表为删除，1代表删除',
+  `user_image` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '用户图片',
+>>>>>>> a0046ff29998cd277d16735fe59d099dc6c45191
   `user_created_time` datetime NOT NULL COMMENT '用户创建时间',
   `user_deleted_time` datetime DEFAULT NULL COMMENT '用户删除时间',
   PRIMARY KEY (`user_name`,`user_id`)
@@ -140,9 +175,15 @@ CREATE TABLE `produce` (
   `produceId` mediumint(12) NOT NULL AUTO_INCREMENT,
   `title` varchar(100) NOT NULL COMMENT '旅游路线主题名称',
   `scenics` varchar(500) DEFAULT NULL COMMENT '路线所包含所有景点，用“青秀山，大明山”这种格式',
+<<<<<<< HEAD
   `waySId` char(60) DEFAULT NULL COMMENT '出行方式，中间用逗号隔开',
   `totalAmount` double(60,0) DEFAULT NULL COMMENT '路线原价，单位元',
   `price` double(60,0) DEFAULT NULL COMMENT '路线现价',
+=======
+  `waySId` varchar(60) DEFAULT NULL COMMENT '出行方式，中间用逗号隔开',
+  `totalAmount` double(255,0) DEFAULT NULL COMMENT '路线原价，单位元',
+  `price` varchar(255) DEFAULT NULL COMMENT '路线现价',
+>>>>>>> a0046ff29998cd277d16735fe59d099dc6c45191
   `Images` varchar(255) DEFAULT NULL COMMENT '路线的特色图片，多张图片用逗号隔开',
   `description` varchar(1000) DEFAULT NULL COMMENT '对路线的文字描述',
   `start_time` datetime DEFAULT NULL COMMENT '路线运营的初始时间',
@@ -219,7 +260,11 @@ CREATE TABLE `super_manager` (
   PRIMARY KEY (`id`),
   KEY `addressId` (`addressId`),
   KEY `produceId` (`produceId`),
+<<<<<<< HEAD
   CONSTRAINT `super_manager_ibfk_1` FOREIGN KEY (`addressId`) REFERENCES `address` (`addressId`)
+=======
+  CONSTRAINT `super_manager_ibfk_1` FOREIGN KEY (`addressId`) REFERENCES `address` (`addressid`)
+>>>>>>> a0046ff29998cd277d16735fe59d099dc6c45191
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -239,10 +284,18 @@ CREATE TABLE `user` (
   `age` int(3) DEFAULT NULL COMMENT '年龄',
   `idCard` varchar(30) DEFAULT NULL COMMENT '身份证信息',
   `enable` int(1) DEFAULT '0' COMMENT '账户是否能用',
+<<<<<<< HEAD
   `province` varchar(255) DEFAULT NULL COMMENT '省份',
   PRIMARY KEY (`id`),
   KEY `addressId` (`addressId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1503329 DEFAULT CHARSET=utf8;
+=======
+  `province` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '省份',
+  PRIMARY KEY (`id`),
+  KEY `addressId` (`addressId`),
+  CONSTRAINT `addressId` FOREIGN KEY (`addressId`) REFERENCES `region` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=751011 DEFAULT CHARSET=utf8;
+>>>>>>> a0046ff29998cd277d16735fe59d099dc6c45191
 
 -- ----------------------------
 -- Table structure for user_role
@@ -262,9 +315,18 @@ CREATE TABLE `user_role` (
 DROP TABLE IF EXISTS `ways`;
 CREATE TABLE `ways` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+<<<<<<< HEAD
   `startPlace` varchar(100) DEFAULT NULL COMMENT '起始地',
   `endPlace` varchar(100) DEFAULT NULL COMMENT '目的地',
   `amount` double(255,0) NOT NULL,
   `way` int(1) NOT NULL COMMENT '0飞机，1火车，2汽车，3自驾，4其它',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1000001 DEFAULT CHARSET=utf8;
+=======
+  `startPlace` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '起始地',
+  `endPlace` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '目的地',
+  `amount` double(255,0) NOT NULL,
+  `way` int(1) NOT NULL COMMENT '0飞机，1火车，2汽车，3自驾，4其它',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=519831 DEFAULT CHARSET=utf8;
+>>>>>>> a0046ff29998cd277d16735fe59d099dc6c45191
